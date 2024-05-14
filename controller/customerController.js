@@ -97,3 +97,78 @@ $("#btnDeleteCustomer").on('click',()=>{
     loadTable()
     clearCustomer()
 })
+
+$("#customerSearchButton").on('click', () => {
+    const searchQuery = $("#searchBar").val().trim().toLowerCase();
+    const searchResults = [];
+
+
+    customers.forEach(customer => {
+        if (
+            customer.customerId.toLowerCase() === searchQuery ||
+            customer.customerName.toLowerCase().includes(searchQuery) ||
+            customer.customerEmail.toLowerCase().includes(searchQuery) ||
+            customer.customerAddress.toLowerCase().includes(searchQuery) ||
+            customer.customerPhone.toLowerCase() === searchQuery
+        ) {
+            searchResults.push(customer);
+        }
+    });
+
+    $("#customer-table-tbody").empty();
+
+
+    searchResults.forEach(customer => {
+        $("#customer-table tbody").append(`
+            <tr>
+                <td>${customer.customerId}</td>
+                <td>${customer.customerName}</td>
+                <td>${customer.customerEmail}</td>
+                <td>${customer.customerAddress}</td>
+                <td>${customer.customerPhone}</td>
+            </tr>
+        `);
+    });
+
+
+    if (searchResults.length === 0) {
+        $("#customer-table-tbody").html("<tr><td colspan='4'>No matching customers were found.</td></tr>");
+    }
+});
+
+function suggestNames(input) {
+    const suggestions = [];
+    const inputText = input.toLowerCase().trim();
+
+
+    customers.forEach(customer => {
+        if (customer.customerName.toLowerCase().startsWith(inputText)) {
+            suggestions.push(customer.customerName);
+        }
+    });
+
+    return suggestions;
+}
+
+
+function updateSuggestions(suggestions) {
+    const suggestionsList = $("#suggestions");
+
+    suggestionsList.empty();
+
+    suggestions.forEach(suggestion => {
+        suggestionsList.append(`<li>${suggestion}</li>`);
+    });
+}
+$("#searchBar").on('input', function() {
+    const input = $(this).val();
+    const suggestions = suggestNames(input);
+
+    updateSuggestions(suggestions);
+
+    if (input.trim() === '') {
+        $("#suggestions").hide();
+    } else {
+        $("#suggestions").show();
+    }
+});
