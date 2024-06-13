@@ -400,31 +400,33 @@
                 <h1>Add Item</h1>
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <label for="Item Id" class="form-label">Item Code</label>
-                        <input type="number" class="form-control" id="Item Id">
+                        <label for="order-item-id" class="form-label">Item Code</label>
+                        <input type="number" class="form-control" id="order-item-id">
                     </div>
                     <div class="col-md-6">
-                        <label for="itemDesc" class="form-label">Item Name</label>
-                        <input type="text" class="form-control" id="itemDesc">
+                        <label for="order-item-name" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="order-item-name">
                     </div>
                     <div class="col-12">
-                        <label for="Unit Price" class="form-label">Unit Price</label>
-                        <input type="text" class="form-control" id="Unit Price">
+                        <label for="order-item-price" class="form-label">Unit Price</label>
+                        <input type="text" class="form-control" id="order-item-price">
                     </div>
                     <div class="col-12">
-                        <label for="Qty on hand" class="form-label">Qty on hand</label>
-                        <input type="text" class="form-control" id="Qty on hand">
+                        <label for="order-item-qty-on-hand" class="form-label">Qty on hand</label>
+                        <input type="text" class="form-control" id="order-item-qty-on-hand">
                     </div>
                     <div class="col-12">
-                        <label for="Quantity" class="form-label">Order Quantity</label>
-                        <input type="Number" class="form-control" id="Quantity" placeholder="Enter needed quantity">
+                        <label for="order-item-qty" class="form-label">Order Quantity</label>
+                        <input type="Number" class="form-control" id="order-item-qty" placeholder="Enter needed quantity">
                     </div>
                     <div class="col-md-4">
-                        <label for="Sub Total" class="form-label">Sub Total</label>
-                        <input type="text" class="form-control" id="Sub Total">
+                        <label for="order-item-sub-total" class="form-label">Sub Total</label>
+                        <input type="text" class="form-control" id="order-item-sub-total">
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        <button type="button" class="btn btn-outline-success me-2" id="btn-update-cart-item" style="display: none">Update Item</button>
+                        <button type="button" class="btn btn-outline-danger me-2" id="btn-cart-item-delete" style="display: none" >Remove from Cart</button>
                     </div>
                 </form>
             </div>
@@ -433,38 +435,38 @@
                 <h1>New Order Details</h1>
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Order Id</label>
-                        <input type="number" class="form-control" id="inputEmail4">
+                        <label for="orderId" class="form-label">Order Id</label>
+                        <input type="number" class="form-control" id="orderId">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Customer Id</label>
-                        <input type="number" class="form-control" id="inputPassword4">
+                        <label for="order-customer-id" class="form-label">Customer Id</label>
+                        <input type="number" class="form-control" id="order-customer-id">
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Customer Name</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="">
+                        <label for="order-customer-name" class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" id="order-customer-name" placeholder="">
                     </div>
                     <div class="col-12">
-                        <label for="inputAddress" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="inputAddress" placeholder="YYYY/MM/DD">
+                        <label for="order-date" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="order-date" placeholder="YYYY/MM/DD">
                     </div>
                     <div class="col-md-4">
-                        <label for="inputCity" class="form-label">Total</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <label for="order-total" class="form-label">Total</label>
+                        <input type="text" class="form-control" id="order-total">
                     </div>
                     <div class="col-md-4">
-                        <label for="inputState" class="form-label">Discount</label>
-                        <select id="inputState" class="form-select">
+                        <label for="order-discount" class="form-label">Discount</label>
+                        <select id="order-discount" class="form-select" disabled placeholder="5% off">
                             <option selected>Choose...</option>
                             <option>25% off</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label for="inputZip" class="form-label">Sub Total</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <label for="order-full-total" class="form-label">Sub Total</label>
+                        <input type="text" class="form-control" id="order-full-total">
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Buy</button>
+                        <button type="submit" class="btn btn-primary" id="buy-order">Buy</button>
                     </div>
                 </form>
             </div>
@@ -484,6 +486,7 @@
                     <tbody id="order-item-table-tbody">
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-outline-primary" id="order-finished">Finished</button>
             </div>
         </div>
     </div>
