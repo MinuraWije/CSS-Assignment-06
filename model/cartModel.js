@@ -7,12 +7,12 @@ export class CartModel{
         this._itemCode = value;
     }
 
-    get name() {
-        return this._name;
+    get itemName() {
+        return this._itemName;
     }
 
-    set name(value) {
-        this._name = value;
+    set itemName(value) {
+        this._itemName = value;
     }
 
     get unitPrice() {
@@ -40,7 +40,7 @@ export class CartModel{
     }
     constructor(itemCode,name,unitPrice,qty,totalPrice) {
         this._itemCode = itemCode;
-        this._name = name;
+        this._itemName = name;
         this._unitPrice = unitPrice;
         this._qty = qty;
         this._totalPrice = totalPrice;
