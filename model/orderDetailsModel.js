@@ -1,9 +1,23 @@
-export class orderModel{
-    constructor(order_id,item_id,price,qty) {
-        this.order_id=order_id;
-        this.item_id=item_id;
-        this.price=price;
-        this.qty=qty;
+
+
+export class OrderDetailModel{
+    get OrderModel() {
+        return this._OrderModel;
     }
 
+    set OrderModel(value) {
+        this._OrderModel = value;
+    }
+
+    get ItemList() {
+        return this._ItemList;
+    }
+
+    set ItemList(value) {
+        this._ItemList = value;
+    }
+    constructor(OrderModel,ItemList) {
+        this._OrderModel = OrderModel;
+        this._ItemList=ItemList
+    }
 }
