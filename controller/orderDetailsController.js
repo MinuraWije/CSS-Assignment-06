@@ -1,5 +1,5 @@
 import {order_details} from "../db/db.js";
-import {orderDetailsModel} from "../model/orderDetailsModel";
+import {OrderDetailModel} from "../model/orderDetailModel";
 
 
 let clickedIndex;
