@@ -34,6 +34,7 @@ function clearCustomer() {
 
     $("#customerIdUpdate").text("");
     $("#customerNameUpdate").val("");
+    $("#customerEmailUpdate").val("");
     $("#customerAddressUpdate").val("");
     $("#customerPhoneUpdate").val("");
 }
