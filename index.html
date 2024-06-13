@@ -401,7 +401,8 @@
                 <form class="row g-3">
                     <div class="col-md-6">
                         <label for="order-item-id" class="form-label">Item Code</label>
-                        <input type="number" class="form-control" id="order-item-id">
+                        <input type="text" class="form-control" id="order-item-id">
+                        <ul id="item-id-suggestions"></ul>
                     </div>
                     <div class="col-md-6">
                         <label for="order-item-name" class="form-label">Item Name</label>
@@ -424,7 +425,7 @@
                         <input type="text" class="form-control" id="order-item-sub-total">
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        <button type="submit" class="btn btn-primary" id="btn-add-to-cart">Add to Cart</button>
                         <button type="button" class="btn btn-outline-success me-2" id="btn-update-cart-item" style="display: none">Update Item</button>
                         <button type="button" class="btn btn-outline-danger me-2" id="btn-cart-item-delete" style="display: none" >Remove from Cart</button>
                     </div>
@@ -436,11 +437,12 @@
                 <form class="row g-3">
                     <div class="col-md-6">
                         <label for="orderId" class="form-label">Order Id</label>
-                        <input type="number" class="form-control" id="orderId">
+                        <input type="text" class="form-control" id="orderId">
+                        <ul id="order-customer-id-suggestions"></ul>
                     </div>
                     <div class="col-md-6">
                         <label for="order-customer-id" class="form-label">Customer Id</label>
-                        <input type="number" class="form-control" id="order-customer-id">
+                        <input type="text" class="form-control" id="order-customer-id">
                     </div>
                     <div class="col-12">
                         <label for="order-customer-name" class="form-label">Customer Name</label>
@@ -452,21 +454,18 @@
                     </div>
                     <div class="col-md-4">
                         <label for="order-total" class="form-label">Total</label>
-                        <input type="text" class="form-control" id="order-total">
+                        <input type="number" class="form-control" id="order-total">
                     </div>
                     <div class="col-md-4">
                         <label for="order-discount" class="form-label">Discount</label>
-                        <select id="order-discount" class="form-select" disabled placeholder="5% off">
-                            <option selected>Choose...</option>
-                            <option>25% off</option>
-                        </select>
+                        <input id="order-discount" class="form-control" disabled placeholder="5% off">
                     </div>
                     <div class="col-md-4">
                         <label for="order-full-total" class="form-label">Sub Total</label>
                         <input type="text" class="form-control" id="order-full-total">
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary" id="buy-order">Buy</button>
+                        <button type="button" class="btn btn-primary" id="buy-order">Buy</button>
                     </div>
                 </form>
             </div>
