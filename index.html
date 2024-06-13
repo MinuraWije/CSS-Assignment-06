@@ -503,7 +503,75 @@
     </div>
 </section>
 
+<section id="order-details-section" class="order_Details">
+    <div class="container mt-5">
+        <h5 class="card-header">Order Details</h5>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search item" aria-label="Search" id="orderDetails-searchBar">
+                        <button class="btn btn-primary" type="button" id="orderDetailsSearchButton">Search</button>
+                    </form>
+                    <ul id="order-details-suggestions"></ul>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col">
+                    <table class="table" id="order-details-table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Customer Id</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Sub Total</th>
+                            <th scope="col">Cash</th>
+                            <th scope="col">Balance</th>
+                        </tr>
+                        </thead>
+                        <tbody id="order-details-table-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="order_details1">
+        <div class="col-md-4 mt-3">
+            <div class="card" id="orderDetailsForm">
+                <div class="card-header text-center gradient-text">
+                    <h3>Order Details</h3>
+                </div>
+
+                <form class="d-flex" role="search">
+                    <input id="searchField4" class="form-control me-3 searchField" type="search" placeholder="Search" aria-label="Search">
+                    <button id="search4" class="btn btn-outline-success searchBtn" type="button">Search</button>
+                </form>
+
+                <div class="col m-3">
+                    <table class="table" id="order-details-table">
+                        <thead class="table-color">
+                        <tr>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Customer Id</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Sub Total</th>
+                            <th scope="col">Cash</th>
+                            <th scope="col">Balance</th>
+                        </tr>
+                        </thead>
+                        <tbody id="order-details-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</section>
 
 <script src="assets/jquery-3.7.1.min.js"></script>
 
