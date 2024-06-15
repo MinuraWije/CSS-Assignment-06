@@ -3,12 +3,11 @@ import {OrderModel} from "../model/orderModel.js";
 
 import {CartModel} from "../model/cartModel.js";
 import {loadItemTable} from "./itemController.js";
-import {OrderDetailModel} from "../model/orderDetailModel";
+import {OrderDetailModel} from "../model/orderDetailModel.js";
 
 let displayCart = [];
 let clickedIndex;
 let orderIdCounter = 1;
-
 $(document).ready(function (){
 
 
@@ -21,8 +20,11 @@ $(document).ready(function (){
                 if (item.itemCode.toLowerCase()===itemCode){
                     $("#order-item-name").val(item.itemName)
                     $("#order-item-price").val(item.itemPrice)
-                    /*$("#order-item-qty-on-hand").val(item.itemQuantity)*/
+                    $("#order-item-qty-on-hand").val(item.itemQuantity)
                     $("#item-id-suggestions").hide();
+                }
+                else{
+                    alert('Invalid Item');
                 }
             })
         }
@@ -73,7 +75,8 @@ $("#btn-add-to-cart").on('click',()=>{
     let itemDesc = $("#order-item-name").val()
     let price =$("#order-item-price").val()
     let qty =$("#order-item-qty").val()
-    let subTotal = $("#order-sub-total").val()
+    let subTotal = $("#order-item-sub-total").val()
+
     items.forEach(item =>{
         if (item.itemCode.toLowerCase() === itemId) {
             orderItems.push(item)
@@ -117,8 +120,9 @@ function clearCart(){
     $("#order-item-id").val("")
     $("#order-item-name").val("")
     $("#order-item-price").val("")
+    $("#order-item-qty-on-hand").val("")
     $("#order-item-qty").val("")
-    $("#order-sub-total").val("")
+    $("#order-item-sub-total").val("")
     $("#item-id-suggestions").hide()
 }
 $("#order-item-table-tbody").on('click','tr',function (){
@@ -132,7 +136,7 @@ $("#order-item-table-tbody").on('click','tr',function (){
     let total = $(this).find(".order-item-subTotal").text()
 
     $("#order-item-id").val(itemCode)
-    $("#order-item-name").val(desc)
+    $("#order-item-desc").val(desc)
     $("#order-item-price").val(price)
     $("#order-item-qty").val(qty)
     $("#order-sub-total").val(total)
@@ -165,7 +169,7 @@ $("#btn-update-cart-item").on('click',()=>{
     let itemDesc = $("#order-item-name").val()
     let price =$("#order-item-price").val()
     let qty =$("#order-item-qty").val()
-    let subTotal = $("#order-sub-total").val()
+    let subTotal = $("#order-item-sub-total").val()
 
     let cartItem = cartItems[clickedIndex];
 
@@ -199,6 +203,9 @@ $("#order-customer-id").on('blur', (event)=>{
             $("#order-customer-name").val(customer.customerName)
             $("#order-customer-id-suggestions").hide()
         }
+        else{
+            alert('Invalid Customer!');
+        }
     })
 })
 function suggestCustomerIds(input) {
@@ -223,7 +230,7 @@ function updateCustomerSuggestions(suggestions) {
         suggestionsList.append(`<li>${suggestion}</li>`);
     });
 }
-$("#order-customer-id").on('input', function() {
+$("#order-customer-id-suggestions").on('input', function() {
     const input = $(this).val();
     const suggestions = suggestCustomerIds(input);
 
