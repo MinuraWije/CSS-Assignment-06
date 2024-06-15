@@ -23,9 +23,9 @@ $(document).ready(function (){
                     $("#order-item-qty-on-hand").val(item.itemQuantity)
                     $("#item-id-suggestions").hide();
                 }
-                else{
+                /*else{
                     alert('Invalid Item');
-                }
+                }*/
             })
         }
     })
@@ -166,7 +166,7 @@ $("#btn-cart-item-delete").on('click',()=>{
 })
 $("#btn-update-cart-item").on('click',()=>{
     let itemId = $("#order-item-id").val()
-    let itemDesc = $("#order-item-name").val()
+    let itemName = $("#order-item-name").val()
     let price =$("#order-item-price").val()
     let qty =$("#order-item-qty").val()
     let subTotal = $("#order-item-sub-total").val()
@@ -174,7 +174,7 @@ $("#btn-update-cart-item").on('click',()=>{
     let cartItem = cartItems[clickedIndex];
 
     cartItem.itemCode = itemId;
-    cartItem.itemName=itemDesc;
+    cartItem.itemName=itemName;
     cartItem.unitPrice = price;
     cartItem.qty=qty;
     cartItem.totalPrice = subTotal
@@ -203,9 +203,9 @@ $("#order-customer-id").on('blur', (event)=>{
             $("#order-customer-name").val(customer.customerName)
             $("#order-customer-id-suggestions").hide()
         }
-        else{
+        /*else{
             alert('Invalid Customer!');
-        }
+        }*/
     })
 })
 function suggestCustomerIds(input) {
