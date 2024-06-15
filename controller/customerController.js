@@ -1,22 +1,20 @@
 import {customers} from "../db/db.js";
-import {CustomerModel} from "../model/customerModel.js";
-import {RegexValidator} from "../validation/RegexValidator";
+import  {CustomerModel} from "../model/customerModel.js";
+import {RegexValidator} from "../validation/RegexValidator.js";
 
-let idCounter = 1
+
 let clickedIndex;
-
-$('#btnAddCustomer').on('click',() =>{
-    let customerId = getCustomerId();
-    let customerName = $("#customerName").val();
-    let customerEmail = $("#customerEmail").val();
-    let customerAddress = $("#customerAddress").val();
-    let customerPhone = $("#customerPhone").val();
+let idCounter = 1
+$("#btnAddCustomer").on('click',()=>{
+    let customerId = getCustomerId()
+    let customerName = $("#customerName").val()
+    let customerEmail = $("#customerEmail").val()
+    let customerAddress = $("#customerAddress").val()
+    let customerPhone = $("#customerPhone").val()
 
     let validator = new RegexValidator();
 
     const validationResult = validator.validateCustomer(customerName, customerEmail, customerAddress, customerPhone);
-
-    let customer = new CustomerModel(customerId(),customerName,customerEmail,customerAddress,customerPhone);
     if (validationResult.isValid){
         let customer = new CustomerModel(customerId(),customerName,customerEmail,customerAddress,customerPhone)
         customers.push(customer)
@@ -28,7 +26,7 @@ $('#btnAddCustomer').on('click',() =>{
         if (!validationResult.isNameValid) {
             alert('Invalid Name');
         }
-        if(!validationResult.isEmailValid){
+        if (!validationResult.isEmailValid){
             alert('Invalid Email');
         }
         if (!validationResult.isAddressValid) {
@@ -38,8 +36,7 @@ $('#btnAddCustomer').on('click',() =>{
             alert('Invalid Phone');
         }
     }
-});
-
+})
 function  getCustomerId(){
     return function (){
         let customerId = String(idCounter).padStart(3,'0')
@@ -60,7 +57,6 @@ function clearCustomer() {
     $("#customerAddressUpdate").val("");
     $("#customerPhoneUpdate").val("");
 }
-
 function loadTable(){
     $("#customer-table-tbody").append().empty()
     customers.map((item,index)=>{
@@ -75,10 +71,11 @@ function loadTable(){
         $("#customer-table-tbody").append(record);
     })
 }
-
-$("#customer-table-tbody").on('click','tr', function (){
+$("#customer-table-tbody").on('click','tr',function (){
     let index = $(this).index();
     clickedIndex = index;
+
+
     let customerId = $(this).find(".customerId").text()
     let customerName = $(this).find(".customerName").text()
     let customerEmail = $(this).find(".customerEmail").text()
@@ -86,7 +83,7 @@ $("#customer-table-tbody").on('click','tr', function (){
     let customerPhone = $(this).find(".customerPhone").text()
 
 
-    $("#updateCustomerbtn").click()
+    $("#updateCustomerBtn").click()
     $("#customerIdUpdate").text(customerId);
     $("#customerNameUpdate").val(customerName);
     $("#customerEmailUpdate").val(customerEmail);
@@ -94,7 +91,6 @@ $("#customer-table-tbody").on('click','tr', function (){
     $("#customerPhoneUpdate").val(customerPhone);
 
 })
-
 $("#btnUpdateCustomer").on('click',()=>{
 
     let customerIdUpdated = $("#customerIdUpdate").text();
@@ -105,7 +101,7 @@ $("#btnUpdateCustomer").on('click',()=>{
 
     let customerObject = customers[clickedIndex];
 
-    customerObject.customerId =customerIdUpdated
+    customerObject.custId =customerIdUpdated
     customerObject.customerName = customerNameUpdated
     customerObject.customerEmail = customerEmailUpdated
     customerObject.customerAddress = customerAddressUpdated
@@ -114,7 +110,6 @@ $("#btnUpdateCustomer").on('click',()=>{
     clearCustomer()
     loadTable()
 })
-
 $("#btnDeleteCustomer").on('click',()=>{
     customers.splice(clickedIndex,1)
     loadTable()
