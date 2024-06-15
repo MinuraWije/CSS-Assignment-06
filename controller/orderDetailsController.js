@@ -1,5 +1,4 @@
 import {order_details} from "../db/db.js";
-import {OrderDetailModel} from "../model/orderDetailModel";
 
 
 let clickedIndex;
@@ -25,10 +24,25 @@ function loadTable(){
 }
 $("#order-details-table-tbody").on('click','tr',function (){
     let index = $(this).index();
-    clickedIndex = index;
-
-    let order = order_details[clickedIndex]
-
-    console.log(order.item)
+    let order = order_details[index];
+    populateItemList(order.ItemList);
+    $('#listItems').modal('show');
 })
 
+function populateItemList(itemList) {
+    let itemListBody = $("#itemList-body");
+    itemListBody.empty();
+
+    itemList.forEach(item => {
+        let row = `
+                <tr>
+                    <td>${item.itemCode}</td>
+                    <td>${item.itemName}</td>
+                    <td>${item.itemQuantity}</td>
+                    <td>${item.unitPrice}</td>
+                    <td>${item.unitPrice * item.qty}</td>
+                </tr>
+            `;
+        itemListBody.append(row);
+    });
+}
