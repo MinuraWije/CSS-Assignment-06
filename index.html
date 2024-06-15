@@ -197,88 +197,6 @@
     <div class="container mt-5">
         <h5 class="card-header">Items</h5>
         <div class="card-body">
-
-            <!--<div class="row mb-3">
-                <div class="col-md-6 text-start">  &lt;!&ndash;d-grid gap-2 d-md-flex  justify-content-md-start&ndash;&gt;
-                    <button class="btn btn-success me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#newItemModal">New Item</button>
-                    <button class="btn btn-warning" type="button">View All Items</button>
-                </div>
-                <div class="col-md-6">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search or delete item" aria-label="Search">
-                        <button class="btn btn-primary" type="submit">Search</button>
-                    </form>
-                </div>
-
-            </div>
-            <div class="modal fade" id="newItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header text-bg-success">
-                            <h1 class="modal-title fs-5" id="itemModal">New Item</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label class="form-label">Item Code :</label>
-                                <input type="text" class="form-control" id="itemCode">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Name :</label>
-                                <input type="text" class="form-control" id="itemName">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Quantity :</label>
-                                <input type="email" class="form-control" id="itemQuantity">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Price :</label>
-                                <input type="text" class="form-control" id="itemPrice">
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-success">Save</button>
-                            <button type="button" class="btn btn-outline-primary">Update </button>
-                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Code</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">001</th>
-                            <td>Keeri Samba</td>
-                            <td>1kg</td>
-                            <td>100.00</td>
-                            <td><i class="fa fa-trash text-danger"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">002</th>
-                            <td>Biscuit</td>
-                            <td>1pcs</td>
-                            <td>150.00</td>
-                            <td><i class="fa fa-trash text-danger"></i></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>-->
             <div class="row mb-3">
                 <div class="col-md-6 text-start">  <!--d-grid gap-2 d-md-flex  justify-content-md-start-->
                     <button class="btn btn-success me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#newItemModal">New Item</button>
@@ -311,15 +229,15 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Item Name :</label>
-                                <input type="email" class="form-control" id="itemName">
+                                <input type="text" class="form-control" id="itemName">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Item Quantity :</label>
-                                <input type="text" class="form-control" id="itemQuantity">
+                                <input type="number" class="form-control" id="itemQuantity">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Item Price :</label>
-                                <input type="tel" class="form-control" id="itemPrice">
+                                <input type="number" class="form-control" id="itemPrice">
                             </div>
 
                         </div>
@@ -352,11 +270,11 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Item Quantity :</label>
-                                <input type="email" class="form-control" id="itemQuantityUpdate">
+                                <input type="number" class="form-control" id="itemQuantityUpdate">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Item Price :</label>
-                                <input type="text" class="form-control" id="itemPriceUpdate">
+                                <input type="number" class="form-control" id="itemPriceUpdate">
                             </div>
 
                         </div>
@@ -425,7 +343,7 @@
                         <input type="text" class="form-control" id="order-item-sub-total">
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary" id="btn-add-to-cart">Add to Cart</button>
+                        <button type="button" class="btn btn-primary" id="btn-add-to-cart">Add to Cart</button>
                         <button type="button" class="btn btn-outline-success me-2" id="btn-update-cart-item" style="display: none">Update Item</button>
                         <button type="button" class="btn btn-outline-danger me-2" id="btn-cart-item-delete" style="display: none" >Remove from Cart</button>
                     </div>
@@ -477,8 +395,8 @@
                     <tr>
                         <th scope="col">Code</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Total</th>
                     </tr>
                     </thead>
@@ -511,13 +429,11 @@
                         <thead>
                         <tr>
                             <th scope="col">Order Id</th>
+                            <th scope="col">Customer Name</th>
                             <th scope="col">Order Date</th>
-                            <th scope="col">Customer Id</th>
                             <th scope="col">Total</th>
                             <th scope="col">Discount</th>
                             <th scope="col">Sub Total</th>
-                            <th scope="col">Cash</th>
-                            <th scope="col">Balance</th>
                         </tr>
                         </thead>
                         <tbody id="order-details-table-tbody">
@@ -527,38 +443,31 @@
             </div>
         </div>
     </div>
-    <!--<div class="order_details1">
-        <div class="col-md-4 mt-3">
-            <div class="card" id="orderDetailsForm">
-                <div class="card-header text-center gradient-text">
-                    <h3>Order Details</h3>
+    <div class="modal fade" id="listItems" tabindex="-1" aria-labelledby="listItems-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="listItems-label">Item List</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-                <form class="d-flex" role="search">
-                    <input id="searchField4" class="form-control me-3 searchField" type="search" placeholder="Search" aria-label="Search">
-                    <button id="search4" class="btn btn-outline-success searchBtn" type="button">Search</button>
-                </form>
-
-                <div class="col m-3">
-                    <table class="table" id="order-details-table">
-                        <thead class="table-color">
+                <div class="modal-body">
+                    <table class="table" id="itemList-orderDetails">
+                        <thead>
                         <tr>
-                            <th scope="col">Order Id</th>
-                            <th scope="col">Order Date</th>
-                            <th scope="col">Customer Id</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Discount</th>
-                            <th scope="col">Sub Total</th>
-                            <th scope="col">Cash</th>
-                            <th scope="col">Balance</th>
+                            <th scope="col">#Item Code</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Total Price</th>
                         </tr>
                         </thead>
-                        <tbody id="order-details-tbody"></tbody>
+                        <tbody id="itemList-body">
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 </section>
 
 <script src="assets/jquery-3.7.1.min.js"></script>
@@ -569,5 +478,7 @@
 <script type="module" src="controller/nav.js"></script>
 <script type="module" src="controller/customerController.js"></script>
 <script type="module" src="controller/itemController.js"></script>
+<script type="module" src="controller/orderController.js"></script>
+<script type="module" src="controller/orderDetailsController.js"></script>
 </body>
 </html>
